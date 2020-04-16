@@ -2,11 +2,8 @@ package com.kcc.soo.service.impl;
 
 
 import java.util.List;
-
 import javax.annotation.Resource;
-
 import org.springframework.stereotype.Service;
-
 import com.kcc.soo.dao.CommCodeGroupDao;
 import com.kcc.soo.domain.CommCodeGroup;
 import com.kcc.soo.service.CommCodeGroupService;
@@ -14,6 +11,7 @@ import com.kcc.soo.service.CommCodeGroupService;
 
 // CommCodeGroupService 기본 구현체 
 //
+
 @Service
 public class DefaultCommCodeGroupService implements CommCodeGroupService {
 

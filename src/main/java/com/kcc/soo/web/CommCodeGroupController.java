@@ -41,7 +41,7 @@ public class CommCodeGroupController {
   public void detail(Model model, String groupcodeId) 
       throws Exception {
     CommCodeGroup commCodeGroup = commCodeGroupService.get(groupcodeId);
-    model.addAttribute("commCodeGroup", commCodeGroup);
+    model.addAttribute("commCodeGroup", commCodeGroup); 
   }
   
   @GetMapping("list")
