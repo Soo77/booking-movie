@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kcc.soo.dao.CommCodeGroupDao">
+
+  <!-- 컬럼 이름과 자바 객체의 프로퍼티 이름을 연결한다. -->
+  <resultMap type="CommCodeGroup" id="CommCodeGroupMap">
+    <id column="groupcode_id" property="groupcodeId"/>
+    <result column="groupcode_name" property="groupcodeName"/>
+    <result column="reg_id" property="regId"/>
+    <result column="reg_dt" property="regDt"/>
+    <result column="reg_ip" property="regIp"/>
+    <result column="mod_id" property="modId"/>
+    <result column="mod_dt" property="modDt"/>
+    <result column="mod_ip" property="modIp"/>
+  </resultMap>
+
+  <sql id="sql1">
+    select 
+      groupcode_id,
+      groupcode_name
+    from comm_code_group
+  </sql>
+
+  <select id="findAll" resultMap="CommCodeGroupMap">
+    <include refid="sql1"/>
+	    order by groupcode_id desc
+  </select>
+  <!-- 
+  <select id="findBy" parameterType="int" resultMap="CommCodeGroupMap">
+    <include refid="sql1"/>
+    where board_id=#{haha} 
+  </select>
+  
+  <insert id="insert" parameterType="CommCodeGroup">
+    insert into lms_board(conts)
+    values(#{contents}) 
+  </insert>
+  
+  <update id="update" parameterType="CommCodeGroup">
+    update lms_board set
+      conts=#{contents}
+    where board_id=#{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from lms_board 
+    where board_id=#{value}
+  </delete> -->
+  
+</mapper>
