@@ -27,15 +27,35 @@
     <include refid="sql1"/>
 	    order by groupcode_id desc
   </select>
-  <!-- 
-  <select id="findBy" parameterType="int" resultMap="CommCodeGroupMap">
+  
+  <select id="findBy" parameterType="String" resultMap="CommCodeGroupMap">
     <include refid="sql1"/>
-    where board_id=#{haha} 
+    where groupcode_id=#{haha} 
   </select>
   
   <insert id="insert" parameterType="CommCodeGroup">
-    insert into lms_board(conts)
-    values(#{contents}) 
+    insert into comm_code_group
+    (
+    groupcode_id,
+    groupcode_name,
+    reg_id,
+    reg_dt,
+    reg_ip,
+    mod_id,
+    mod_dt,
+    mod_ip
+    )
+    value
+    (
+    #{groupcodeId},
+    #{groupcodeName},
+    #{regId},
+    now(),
+    #{regIp},
+    #{modId},
+    now(),
+    #{modIp}
+    ) 
   </insert>
   
   <update id="update" parameterType="CommCodeGroup">
@@ -47,6 +67,6 @@
   <delete id="delete" parameterType="int">
     delete from lms_board 
     where board_id=#{value}
-  </delete> -->
+  </delete>
   
 </mapper>
