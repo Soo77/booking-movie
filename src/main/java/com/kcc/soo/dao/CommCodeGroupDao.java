@@ -11,7 +11,8 @@ public interface CommCodeGroupDao {
 
 	int insert(CommCodeGroup commCodeGroup) throws Exception;
 	List<CommCodeGroup> findAll() throws Exception;
-	CommCodeGroup findBy(String commCodeGroupId) throws Exception;
+	CommCodeGroup findBy(String groupcodeId) throws Exception;
 	int update(CommCodeGroup commCodeGroup) throws Exception;
-	int delete(String commCodeGroupId) throws Exception;
+	int delete(String groupcodeId) throws Exception;
+	
 }

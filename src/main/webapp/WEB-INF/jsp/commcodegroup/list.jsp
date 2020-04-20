@@ -18,11 +18,15 @@
 <tr>
   <th>코드ID</th>
   <th>코드명</th>
+  <th>수정가능</th>
+  <th>비고</th>
 </tr>
 <c:forEach items="${commCodeGroups}" var="commCodeGroup">
-  <tr>
+<tr>
     <td>${commCodeGroup.groupcodeId}</td>
-    <td>${commCodeGroup.groupcodeName}</td>
+    <td><a href="detail?groupcodeId=${commCodeGroup.groupcodeId}">${commCodeGroup.groupcodeName}</a></td>
+    <td>${commCodeGroup.editableYn}</td>
+    <td>${commCodeGroup.remark}</td>
   </tr>
 </c:forEach>  
 </table>

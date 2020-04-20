@@ -8,6 +8,8 @@
   <resultMap type="CommCodeGroup" id="CommCodeGroupMap">
     <id column="groupcode_id" property="groupcodeId"/>
     <result column="groupcode_name" property="groupcodeName"/>
+    <result column="gc_edit_yn" property="editableYn"/>
+    <result column="gc_remark" property="remark"/>
     <result column="reg_id" property="regId"/>
     <result column="reg_dt" property="regDt"/>
     <result column="reg_ip" property="regIp"/>
@@ -19,7 +21,9 @@
   <sql id="sql1">
     select 
       groupcode_id,
-      groupcode_name
+      groupcode_name,
+      gc_edit_yn,
+      gc_remark
     from comm_code_group
   </sql>
 
@@ -30,7 +34,7 @@
   
   <select id="findBy" parameterType="String" resultMap="CommCodeGroupMap">
     <include refid="sql1"/>
-    where groupcode_id=#{haha} 
+    where groupcode_id=#{groupcodeId}
   </select>
   
   <insert id="insert" parameterType="CommCodeGroup">
@@ -59,14 +63,14 @@
   </insert>
   
   <update id="update" parameterType="CommCodeGroup">
-    update lms_board set
-      conts=#{contents}
-    where board_id=#{no}
+    update comm_code_group set
+      groupcode_name=#{groupcodeName}
+    where groupcode_id=#{groupcodeId}
   </update>
   
-  <delete id="delete" parameterType="int">
-    delete from lms_board 
-    where board_id=#{value}
+  <delete id="delete" parameterType="String">
+    delete from comm_code_group 
+    where groupcode_id=#{groupcodeId}
   </delete>
   
 </mapper>

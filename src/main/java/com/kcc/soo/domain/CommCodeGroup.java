@@ -13,6 +13,12 @@ public class CommCodeGroup implements Serializable {
 
  // 그룹코드값 
  private String groupcodeName;
+ 
+ // 수정가능여부
+ private String editableYn;
+ 
+ // 비고
+ private String remark;
 
  // 등록자 ID 
  private String regId;
@@ -96,25 +102,31 @@ public class CommCodeGroup implements Serializable {
      this.modIp = modIp;
  }
  
- 
-
- @Override
-public String toString() {
-	return "CommCodeGroup [groupcodeId=" + groupcodeId + ", groupcodeName=" + groupcodeName + ", regId=" + regId
-			+ ", regDt=" + regDt + ", regIp=" + regIp + ", modId=" + modId + ", modDt=" + modDt + ", modIp=" + modIp
-			+ "]";
+ public String getEditableYn() {
+  return editableYn;
 }
 
-// CommCodeGroup 모델 복사
- public void CopyData(CommCodeGroup param)
- {
-     this.groupcodeId = param.getGroupcodeId();
-     this.groupcodeName = param.getGroupcodeName();
-     this.regId = param.getRegId();
-     this.regDt = param.getRegDt();
-     this.regIp = param.getRegIp();
-     this.modId = param.getModId();
-     this.modDt = param.getModDt();
-     this.modIp = param.getModIp();
- }
+public void setEditableYn(String editableYn) {
+  this.editableYn = editableYn;
+}
+
+public String getRemark() {
+  return remark;
+}
+
+public void setRemark(String remark) {
+  this.remark = remark;
+}
+
+
+
+@Override
+public String toString() {
+  return "CommCodeGroup [groupcodeId=" + groupcodeId + ", groupcodeName=" + groupcodeName
+      + ", editableYn=" + editableYn + ", remark=" + remark + ", regId=" + regId + ", regDt="
+      + regDt + ", regIp=" + regIp + ", modId=" + modId + ", modDt=" + modDt + ", modIp=" + modIp
+      + "]";
+}
+
+
 }

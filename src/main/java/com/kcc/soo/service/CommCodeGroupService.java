@@ -13,7 +13,7 @@ public interface CommCodeGroupService {
 
 	List<CommCodeGroup> list() throws Exception;
 	void insert(CommCodeGroup commCodeGroup) throws Exception;
-	CommCodeGroup get(String commCodeGroupId) throws Exception;
+	CommCodeGroup get(String groupcodeId) throws Exception;
 	void update(CommCodeGroup commCodeGroup) throws Exception;
-	void delete(String commCodeGroupId) throws Exception;
+	void delete(String groupcodeId) throws Exception;
 }

@@ -29,12 +29,13 @@ public class CommCodeGroupController {
   @GetMapping("list")
   public void findAll(Model model) throws Exception {
     List<CommCodeGroup> commCodeGroups = commCodeGroupService.list();
+    System.out.println(commCodeGroups);
     System.out.println("Controller");
     model.addAttribute("commCodeGroups", commCodeGroups);
   }
   
   @PostMapping("add")
-  public String add(HttpServletRequest request, CommCodeGroup commCodeGroup, Model model) throws Exception {
+  public String add(HttpServletRequest request, CommCodeGroup commCodeGroup) throws Exception {
 	  String clientIp = getRemoteAddr(request);
 	  commCodeGroup.setRegId("shimsh");
 	  commCodeGroup.setRegIp(clientIp);
@@ -43,6 +44,25 @@ public class CommCodeGroupController {
 
 	  commCodeGroupService.insert(commCodeGroup);
 	  return "redirect:list";
+  }
+  
+  @GetMapping("detail")
+  public void detail(Model model, String groupcodeId) throws Exception {
+    System.out.println("컨트롤러에 디테일은 이거거든요:" + groupcodeId);
+    CommCodeGroup commCodeGroup = commCodeGroupService.get(groupcodeId);
+    model.addAttribute("commCodeGroup", commCodeGroup);
+  }
+   
+  @GetMapping("delete")
+  public String delete(String groupcodeId) throws Exception {
+    commCodeGroupService.delete(groupcodeId);
+    return "redirect:list";
+  }
+  
+  @PostMapping("update")
+  public String update(CommCodeGroup commCodeGroup) throws Exception {
+    commCodeGroupService.update(commCodeGroup);
+    return "redirect:list";
   }
   
 	public static String getRemoteAddr(HttpServletRequest request) {

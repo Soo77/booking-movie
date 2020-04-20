@@ -31,8 +31,10 @@ public class DefaultCommCodeGroupService implements CommCodeGroupService{
 	}
 
 	@Override
-	public CommCodeGroup get(String commCodeGroupId) throws Exception {
-		CommCodeGroup commCodeGroup = commCodeGroupDao.findBy(commCodeGroupId);
+	public CommCodeGroup get(String groupcodeId) throws Exception {
+	  System.out.println("이것이거든요:" + groupcodeId);
+		CommCodeGroup commCodeGroup = commCodeGroupDao.findBy(groupcodeId);
+		System.out.println("객체는 이것:" + commCodeGroup);
 		if (commCodeGroup == null) {
 			throw new Exception("해당 번호의 데이터가 없습니다.");
 		}
@@ -45,8 +47,8 @@ public class DefaultCommCodeGroupService implements CommCodeGroupService{
 	}
 
 	@Override
-	public void delete(String commCodeGroupId) throws Exception {
-		if (commCodeGroupDao.delete(commCodeGroupId) == 0) {
+	public void delete(String groupcodeId) throws Exception {
+		if (commCodeGroupDao.delete(groupcodeId) == 0) {
 			throw new Exception("해당 데이터가 없습니다!");
 		}
 	}
